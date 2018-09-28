@@ -2,7 +2,7 @@ use Comedor
 
 /*Poblacion de Las tablas*/
 
-insert Alergia 
+insert Alergia(id,alimento)
 	values	(1,'Chocolate'),
 			(2,'Pepino'),
 			(3,'Pavo'),
