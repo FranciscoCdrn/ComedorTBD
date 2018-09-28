@@ -20,7 +20,7 @@ GO
 
 CREATE TABLE Alumno(id int NOT NULL,
 					idPersona int NOT NULL,
-					edad tinyint NOT NULL,
+					FechaNac date NOT NULL,
 					idNivel tinyint NOT NULL,
 					grado tinyint NOT NULL)
 GO
@@ -651,10 +651,6 @@ ADD CONSTRAINT UQ_Alumno_Persona
 UNIQUE (idPersona)
 GO
 
-ALTER TABLE Alumno
-ADD CONSTRAINT CK_Alumno_Edad
-CHECK (edad>0)
-GO
 
 ALTER TABLE Alumno
 ADD CONSTRAINT CK_Alumno_Nivel
@@ -743,7 +739,7 @@ GO
 
 ALTER TABLE Nivel
 ADD CONSTRAINT CK_Nivel_Nivel
-CHECK (nivel='Preescolar' AND nivel='Primaria' AND nivel='Secundaria' AND nivel='Preparatoria')
+CHECK (nivel='Preescolar' OR nivel='Primaria' OR nivel='Secundaria' OR nivel='Preparatoria')
 GO
 
 ALTER TABLE Nutriologo
@@ -773,5 +769,5 @@ GO
 
 ALTER TABLE TipoComida
 ADD CONSTRAINT CK_TipoComida_Tipo
-CHECK (tipo='Comida' AND tipo='Postre' AND tipo='Bebida')
+CHECK (tipo='Comida' OR tipo='Postre' OR tipo='Bebida')
 GO
